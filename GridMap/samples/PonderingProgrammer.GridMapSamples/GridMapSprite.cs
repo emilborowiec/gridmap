@@ -49,6 +49,8 @@ namespace PonderingProgrammer.GridMapSamples
 
             spriteBatch.FillRectangle(OriginX * _scale, OriginY * _scale, bb.Width * _scale, bb.Height * _scale, Color.Black);
 
+            DrawAreas(spriteBatch);
+
             for (var y = 0; y < bb.Height; y++)
             {
                 spriteBatch.DrawLine(OriginX * _scale, y * _scale, (OriginX + bb.Width) * _scale, y * _scale, Color.WhiteSmoke);
@@ -62,6 +64,17 @@ namespace PonderingProgrammer.GridMapSamples
             gd.SetRenderTarget(null);
             spriteBatch.Dispose();
             _tex = renderTarget;
+        }
+
+        private void DrawAreas(SpriteBatch spriteBatch)
+        {
+            foreach (var area in _gridMap.Areas)
+            {
+                foreach (var interiorCoordinates in area.Shape.Interior)
+                {
+                    spriteBatch.FillRectangle(interiorCoordinates.X * _scale, interiorCoordinates.Y * _scale, _scale, _scale, Color.Bisque);
+                }
+            }
         }
     }
 }

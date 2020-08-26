@@ -1,4 +1,5 @@
 ﻿using PonderingProgrammer.GridMap;
+using PonderingProgrammer.GridMath.Shapes;
 
 namespace PonderingProgrammer.GridMapSamples
 {
@@ -7,6 +8,9 @@ namespace PonderingProgrammer.GridMapSamples
         public static IGridMap CreateDemoMap(int width, int height)
         {
             var map = new GridMap.GridMap(width, height);
+            
+            var room = new MapArea(new GridRectangle(0, 0, 4, 3));
+            map.AddArea(room);
 
             return map;
         }
