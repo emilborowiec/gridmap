@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using PonderingProgrammer.GridMap;
 
 namespace PonderingProgrammer.GridMapSamples
 {
@@ -9,16 +10,24 @@ namespace PonderingProgrammer.GridMapSamples
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
 
+        private IGridMap _map;
+        private GridMapSprite _mapSprite;
+
         public Game1()
         {
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
+            _graphics.PreferredBackBufferWidth = 800;
+            _graphics.PreferredBackBufferHeight = 600;
+            _graphics.ApplyChanges();
         }
 
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
+            _map = DemoMapFactory.CreateDemoMap(40, 40);
+            _mapSprite = new GridMapSprite(_map, 32);
+            _mapSprite.UpdateTexture(GraphicsDevice);
 
             base.Initialize();
         }
@@ -45,7 +54,11 @@ namespace PonderingProgrammer.GridMapSamples
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            // TODO: Add your drawing code here
+            _spriteBatch.Begin();
+            
+            _mapSprite.Draw(_spriteBatch);
+            
+            _spriteBatch.End();
 
             base.Draw(gameTime);
         }

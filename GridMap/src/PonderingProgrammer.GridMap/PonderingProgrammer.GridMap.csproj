@@ -4,4 +4,9 @@
         <TargetFramework>netcoreapp3.1</TargetFramework>
     </PropertyGroup>
 
+    <ItemGroup>
+      <PackageReference Include="PonderingProgrammer.GridMath" Version="1.0.0" />
+      <PackageReference Include="YC.QuickGraph" Version="3.7.4" />
+    </ItemGroup>
+
 </Project>
