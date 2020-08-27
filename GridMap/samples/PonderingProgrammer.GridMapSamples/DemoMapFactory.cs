@@ -7,7 +7,7 @@ namespace PonderingProgrammer.GridMapSamples
     {
         public static IGridMap CreateDemoMap(int width, int height)
         {
-            var map = new GridMap.GridMap(width, height);
+            var map = new GridMap.SquareGridMap(width, height);
             
             var room = new MapArea(new GridRectangle(0, 0, 4, 3));
             map.AddArea(room);

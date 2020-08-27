@@ -1,14 +1,15 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using PonderingProgrammer.GridMath;
 
 namespace PonderingProgrammer.GridMap
 {
-    public class GridMap : IGridMap
+    public class SquareGridMap : IGridMap
     {
         private List<IMapArea> _areas = new List<IMapArea>();
         
-        public GridMap(int width, int height)
+        public SquareGridMap(int width, int height)
         {
             Bounds = GridBoundingBox.FromSize(0, 0, width, height);
         }
@@ -17,6 +18,8 @@ namespace PonderingProgrammer.GridMap
         public IReadOnlyList<IMapArea> Areas => _areas.AsReadOnly();
         public bool AddArea(IMapArea area)
         {
+            if (area == null) return false;
+            if (!Bounds.Contains(area.Shape.BoundingBox)) return false;
             if (_areas.Any(a => a.Shape.Overlaps(area.Shape.BoundingBox))) return false;
             _areas.Add(area);
             return true;
