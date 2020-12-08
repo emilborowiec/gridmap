@@ -1,7 +1,7 @@
-﻿using PonderingProgrammer.GridMap;
-using PonderingProgrammer.GridMath.Shapes;
+﻿using GridMap;
+using GridMath.Shapes;
 
-namespace PonderingProgrammer.GridMapSamples
+namespace GridMapSamples
 {
     public static class DemoMapFactory
     {
@@ -9,8 +9,8 @@ namespace PonderingProgrammer.GridMapSamples
         {
             var map = new GridMap.SquareGridMap(width, height);
             
-            var room = new MapArea(new GridRectangle(0, 0, 4, 3));
-            map.AddArea(room);
+            var room = new Feature(new GridRectangle(0, 0, 4, 3));
+            map.AddFeature(room);
 
             return map;
         }

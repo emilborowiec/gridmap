@@ -1,15 +1,18 @@
 ﻿using System.Collections.Generic;
-using PonderingProgrammer.GridMath;
-using PonderingProgrammer.GridMath.Shapes;
+using GridMath;
+using GridMath.Shapes;
 using QuickGraph;
 
-namespace PonderingProgrammer.GridMap
+namespace GridMap
 {
-    public class MapArea : IMapArea
+    public class Feature : IFeature
     {
         private Dictionary<GridCoordinatePair, SquareMapField> _fields = new Dictionary<GridCoordinatePair, SquareMapField>();
+        private Dictionary<string, string> _strAttributes = new Dictionary<string, string>();
+        private Dictionary<string, bool> _flagAttributes = new Dictionary<string, bool>();
+        private Dictionary<string, int> _numAttributes = new Dictionary<string, int>();
         
-        public MapArea(IGridShape shape)
+        public Feature(IGridShape shape)
         {
             Shape = shape;
             FieldGraph = new AdjacencyGraph<SquareMapField, Edge<SquareMapField>>();
@@ -70,5 +73,34 @@ namespace PonderingProgrammer.GridMap
             return FindAdjacentFields(coordinates.X, coordinates.Y, includeDiagonallyAdjacent);
         }
 
+        public void SetAttribute(string name, string value)
+        {
+            _strAttributes[name] = value;
+        }
+
+        public void SetAttribute(string name, bool value)
+        {
+            _flagAttributes[name] = value;
+        }
+
+        public void SetAttribute(string name, int value)
+        {
+            _numAttributes[name] = value;
+        }
+
+        public string GetStrAttribute(string name)
+        {
+            return _strAttributes[name];
+        }
+
+        public bool GetFlagAttribute(string name)
+        {
+            return _flagAttributes[name];
+        }
+
+        public int GetNumAttribute(string name)
+        {
+            return _numAttributes[name];
+        }
     }
 }

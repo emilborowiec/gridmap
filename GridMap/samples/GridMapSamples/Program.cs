@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace PonderingProgrammer.GridMapSamples
+namespace GridMapSamples
 {
     public static class Program
     {

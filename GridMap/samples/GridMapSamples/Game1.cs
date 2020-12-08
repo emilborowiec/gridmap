@@ -1,9 +1,9 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using PonderingProgrammer.GridMap;
+using GridMap;
 
-namespace PonderingProgrammer.GridMapSamples
+namespace GridMapSamples
 {
     public class Game1 : Game
     {

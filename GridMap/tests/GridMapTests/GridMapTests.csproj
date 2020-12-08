@@ -4,6 +4,8 @@
         <TargetFramework>netcoreapp3.1</TargetFramework>
 
         <IsPackable>false</IsPackable>
+
+        <RootNamespace>GridMapTests</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
@@ -14,7 +16,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\src\PonderingProgrammer.GridMap\PonderingProgrammer.GridMap.csproj" />
+      <ProjectReference Include="..\..\src\GridMap\GridMap.csproj" />
     </ItemGroup>
 
 </Project>

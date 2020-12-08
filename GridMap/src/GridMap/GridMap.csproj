@@ -2,10 +2,11 @@
 
     <PropertyGroup>
         <TargetFramework>netcoreapp3.1</TargetFramework>
+        <RootNamespace>GridMap</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="PonderingProgrammer.GridMath" Version="1.0.0" />
+      <PackageReference Include="GridMath" Version="1.0.0" />
       <PackageReference Include="YC.QuickGraph" Version="3.7.4" />
     </ItemGroup>
 

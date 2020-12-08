@@ -2,9 +2,9 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoGame;
-using PonderingProgrammer.GridMap;
+using GridMap;
 
-namespace PonderingProgrammer.GridMapSamples
+namespace GridMapSamples
 {
     public class GridMapSprite
     {
@@ -68,7 +68,7 @@ namespace PonderingProgrammer.GridMapSamples
 
         private void DrawAreas(SpriteBatch spriteBatch)
         {
-            foreach (var area in _gridMap.Areas)
+            foreach (var area in _gridMap.Features)
             {
                 foreach (var interiorCoordinates in area.Shape.Interior)
                 {
